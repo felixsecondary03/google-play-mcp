@@ -2,7 +2,7 @@
   "name": "google-play-mcp",
   "version": "1.0.0",
   "scripts": {
-    "start": "sh -c 'echo \"$GOOGLE_CREDENTIALS_JSON\" > /tmp/key.json && GOOGLE_APPLICATION_CREDENTIALS=/tmp/key.json npx supergateway --stdio \"npx @blocktopus/mcp-google-play\" --port 8080'"
+    "start": "sh -c 'echo \"$GOOGLE_CREDENTIALS_JSON\" > /tmp/key.json && GOOGLE_APPLICATION_CREDENTIALS=/tmp/key.json npx supergateway --stdio \"npx @blocktopus/mcp-google-play\" --outputTransport streamableHttp --port 8080'"
   },
   "dependencies": {
     "supergateway": "latest",
