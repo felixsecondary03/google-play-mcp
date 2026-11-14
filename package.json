@@ -1,11 +1,32 @@
 {
   "name": "google-play-mcp",
-  "version": "1.0.0",
-  "scripts": {
-    "start": "sh -c 'echo \"$GOOGLE_CREDENTIALS_JSON\" > /tmp/key.json && GOOGLE_APPLICATION_CREDENTIALS=/tmp/key.json npx supergateway --stdio \"npx @blocktopus/mcp-google-play\" --outputTransport streamableHttp --port 8080'"
+  "version": "2.0.0",
+  "description": "MCP server for the Google Play Console (Android Publisher API + Play Developer Reporting API)",
+  "type": "module",
+  "main": "src/index.js",
+  "bin": {
+    "google-play-mcp": "src/index.js"
   },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node src/index.js --http",
+    "start:stdio": "node src/index.js",
+    "check": "tsc -p jsconfig.json",
+    "test": "node --test test/*.test.js"
+  },
+  "license": "MIT",
   "dependencies": {
-    "supergateway": "latest",
-    "@blocktopus/mcp-google-play": "latest"
+    "@googleapis/androidpublisher": "^42.3.1",
+    "@googleapis/playdeveloperreporting": "^15.0.2",
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "express": "^5.3.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.6.6",
+    "typescript": "^7.0.2"
   }
 }
